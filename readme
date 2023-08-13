@@ -17,7 +17,9 @@ export PATH
 Устанавливаем обвертку для maven
 mvn -N io.takari:maven:wrapper
 
-Для linux так:
+Для linux установка до конца не отлажена, но в целом работает.
+Если версия java < 18:
+sudo apt-get remove openjdk-*
 wget https://download.java.net/java/GA/jdk18/43f95e8614114aeaa8e8a5fcf20a682d/36/GPL/openjdk-18_linux-x64_bin.tar.gz
 tar -xvf openjdk-18_linux-x64_bin.tar.gz
 sudo mv jdk-18* /opt/
