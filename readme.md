@@ -5,50 +5,50 @@
 <img alt="demo2" src="images/2.gif" />
 
        Сборка и установка
-Для сборки из исходников возможно понадобится задать переменные окружения JAVA_HOME(путь до jdk) и M2_HOME(путь до maven).
-Например так(для Mac):
-Качаем maven, распаковываем и даем права исполнения командой:
+Для сборки из исходников возможно понадобится задать переменные окружения JAVA_HOME(путь до jdk) и M2_HOME(путь до maven). \
+Например так(для Mac): \
+Качаем maven, распаковываем и даем права исполнения командой: \
 (cd /opt/goinfre/$(whoami) && curl https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.zip | tar xvz && chmod a+x apache-maven-3.9.4/bin/mvn)
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home/ \
 export M2_HOME=/opt/goinfre/$(whoami)/apache-maven-3.9.4
 
-Далее вводим в терминал эту команду, чтобы задать переменную чтобы maven заработал из командной строки:
-PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin
+Далее вводим в терминал эту команду, чтобы задать переменную чтобы maven заработал из командной строки: \
+PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin \
 export PATH
 
-Устанавливаем обвертку для maven
+Устанавливаем обвертку для maven \
 mvn -N io.takari:maven:wrapper
 
-Для linux установка до конца не отлажена, но в целом работает.
-Если версия java < 18:
-sudo apt-get remove openjdk-*
-wget https://download.java.net/java/GA/jdk18/43f95e8614114aeaa8e8a5fcf20a682d/36/GPL/openjdk-18_linux-x64_bin.tar.gz
-tar -xvf openjdk-18_linux-x64_bin.tar.gz
-sudo mv jdk-18* /opt/
+Для linux установка до конца не отлажена, но в целом работает. \
+Если версия java < 18: \
+sudo apt-get remove openjdk-* \
+wget https://download.java.net/java/GA/jdk18/43f95e8614114aeaa8e8a5fcf20a682d/36/GPL/openjdk-18_linux-x64_bin.tar.gz \
+tar -xvf openjdk-18_linux-x64_bin.tar.gz \
+sudo mv jdk-18* /opt/ \
 export JAVA_HOME=/opt/jdk-18
 
-sudo apt install maven
-export M2_HOME=/usr/bin/mvn
-PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin
+sudo apt install maven \
+export M2_HOME=/usr/bin/mvn \
+PATH=$PATH:$JAVA_HOME/bin:$M2_HOME/bin \
 export PATH
 
-Для запуска тестов ввести:
+Для запуска тестов ввести: \
 make test
 
-Для для установки приложения ввести:
-make install
+Для для установки приложения ввести: \
+make install \
 По умолчанию установка происходил на рабочий стол, задается в переменной INSTALL_PATH в makefile в корне репозитория.
 
-Для открытия ввести:
-make open
-Или запустить с ярлыка на рабочем столе, который создался при установке.
+Для открытия ввести: \
+make open \
+Или запустить с ярлыка на рабочем столе, который создался при установке. \
 Или командой java -jar SmartCalc-3.0.jar из места папки с программой.
 
-Для очистки от артефактов сборки ввести:
+Для очистки от артефактов сборки ввести: \
 make clean
 
-Для для удаления приложения ввести:
+Для для удаления приложения ввести: \
 make uninstall
 Будет удалена папка с приложением и ярлык на рабочем столе.
 
